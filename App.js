@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import HeaderBar from "./components/HeaderBar";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Main from "./components/Main";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function App() {
   const Screen = createNativeStackNavigator();
@@ -13,8 +14,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Screen.Navigator>
-        <Screen.Screen name="Main" component={Main} />
         <Screen.Screen name="Login" component={Login} />
+        <Screen.Screen name="Main" component={Main} />
       </Screen.Navigator>
     </NavigationContainer>
   );
