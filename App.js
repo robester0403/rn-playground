@@ -1,23 +1,21 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Header } from "react-native/Libraries/NewAppScreen";
 import Login from "./components/Login";
+import HeaderBar from "./components/HeaderBar";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Main from "./components/Main";
 
 export default function App() {
-  const Stack = createNativeStackNavigator();
+  const Screen = createNativeStackNavigator();
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="login"
-          component={Login}
-          options={{ title: "Login Page" }}
-        />
-      </Stack.Navigator>
+      <Screen.Navigator>
+        <Screen.Screen name="Main" component={Main} />
+        <Screen.Screen name="Login" component={Login} />
+      </Screen.Navigator>
     </NavigationContainer>
   );
 }
